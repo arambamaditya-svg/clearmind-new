@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+student_data/
+
+# Environment
+.env
+*.key
+*.pem
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+*.orig
+*.log
+
+# Temp
+tempCodeRunnerFile.py

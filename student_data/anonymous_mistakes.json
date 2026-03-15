@@ -1,0 +1,31 @@
+{
+  "mistakes": [
+    {
+      "timestamp": "2026-03-02T12:57:54.394138",
+      "input": "i got 7+6=13 wrong, i thought it was multiplication",
+      "analysis": {
+        "response": "Let's think through this together. Can you tell me more about how you approached it?",
+        "error_type": "unknown",
+        "micro_rule": "check your work carefully"
+      }
+    },
+    {
+      "timestamp": "2026-03-02T13:04:01.005673",
+      "input": "i got 7+6=13 wrong, i thought it was multiplication",
+      "analysis": {
+        "response": "I'm not sure what went wrong. Can you tell me more about your thinking?",
+        "error_type": "unknown",
+        "micro_rule": "check your work carefully"
+      }
+    },
+    {
+      "timestamp": "2026-03-02T13:11:21.910846",
+      "input": "i got 7+6=13 wrong, i thought it was multiplication",
+      "analysis": {
+        "response": "\"Hey there! You might have added numbers when you should have multiplied them, or multiplied when addition was needed. That\u2019s totally okay\u2014we all mix them up sometimes!\"  \n\n\"Let\u2019s practice some examples together so you can see the difference. I\u2019m here to help you get the hang of it!\" \ud83d\ude0a",
+        "error_type": "unknown",
+        "micro_rule": ""
+      }
+    }
+  ]
+}

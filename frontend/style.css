@@ -1,0 +1,745 @@
+/* ===== CLEARMIN MASTER STYLESHEET ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+/* ===== HEADER (Same for all pages) ===== */
+.header {
+    background-color: #153c72;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 20, 40, 0.08);
+    width: 100%;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo-with-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-circle {
+    width: 52px;
+    height: 52px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo-c, .logo-m {
+    color: white;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+}
+
+.logo-text {
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    opacity: 0.95;
+}
+
+.header-spacer {
+    width: 100px;
+}
+
+/* ===== INDEX PAGE SPECIFIC STYLES ===== */
+body:not(.log-page) {
+    background-color: #f5f7fa;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.hero-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main-heading {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: #0a1a2f;
+}
+
+.sub-heading {
+    font-size: 18px;
+    color: #475569;
+    max-width: 600px;
+    margin: 0 auto 56px;
+    line-height: 1.6;
+}
+
+.button-grid {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+}
+
+.action-button {
+    flex: 1;
+    min-width: 280px;
+    max-width: 340px;
+    padding: 28px 32px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.log-btn {
+    background: linear-gradient(145deg, #0971f0, #2f5686);
+}
+
+.insight-btn {
+    background: linear-gradient(145deg, #62a6f9, #2f5686);
+}
+
+.button-main {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.button-sub {
+    font-size: 14px;
+    opacity: 0.85;
+    max-width: 240px;
+}
+
+.process-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin: 60px 0 48px;
+    padding: 40px 48px;
+    background: #f8fafc;
+    border-radius: 32px;
+    border: 1px solid #e9edf2;
+    flex-wrap: wrap;
+}
+
+.process-step {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 200px;
+    background: white;
+    padding: 16px 24px;
+    border-radius: 16px;
+}
+
+.step-indicator {
+    width: 40px;
+    height: 40px;
+    background: #1e3a5f;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.step-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f2b44;
+}
+
+.step-description {
+    font-size: 14px;
+    color: #547089;
+}
+
+.step-arrow {
+    font-size: 24px;
+    color: #9aaec9;
+}
+
+.footer-note {
+    text-align: center;
+    font-size: 20px;
+    color: #547089;
+    font-style: italic;
+    padding: 32px 0 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* ===== LOG PAGE SPECIFIC STYLES ===== */
+body.log-page {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+}
+
+.log-page .header {
+    flex-shrink: 0;
+}
+
+/* Chat container - takes remaining space */
+.log-page .chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #f0f2f5;
+    overflow: hidden;
+}
+
+/* Messages area - scrollable */
+.log-page .messages-area {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #f0f2f5;
+}
+
+/* Message bubbles */
+.log-page .message-row {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.log-page .ai-message {
+    justify-content: flex-start;
+}
+
+.log-page .user-message {
+    justify-content: flex-end;
+}
+
+.log-page .message-avatar {
+    width: 36px;
+    height: 36px;
+    background-color: #1e3a5f;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+    align-self: flex-end;
+    margin-bottom: 18px;
+}
+
+.log-page .message-content {
+    max-width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.log-page .user-message .message-content {
+    align-items: flex-end;
+}
+
+.log-page .message-bubble {
+    padding: 10px 14px;
+    border-radius: 18px;
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: none;
+}
+
+.log-page .ai-message .message-bubble {
+    background-color: white;
+    border-top-left-radius: 4px;
+}
+
+.log-page .user-message .message-bubble {
+    background-color: #1e3a5f;
+    color: white;
+    border-top-right-radius: 4px;
+}
+
+.log-page .message-bubble p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 15px;
+    word-break: break-word;
+}
+
+.log-page .message-time {
+    font-size: 11px;
+    color: #8696a0;
+    margin-top: 4px;
+    padding-left: 8px;
+}
+
+.log-page .user-message .message-time {
+    padding-right: 8px;
+}
+
+/* Input area - FIXED AT BOTTOM */
+.log-page .input-area {
+    flex-shrink: 0;
+    background-color: #f0f2f5;
+    padding: 12px 16px 20px;
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.log-page .input-container {
+    background-color: white;
+    border-radius: 24px;
+    display: flex;
+    align-items: flex-end;
+    padding: 8px 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: none;
+    width: 100%;
+}
+
+.log-page .chat-textarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    resize: none;
+    max-height: 120px;
+    background: transparent;
+    min-height: 24px;
+}
+
+.log-page .chat-textarea::placeholder {
+    color: #94a9c5;
+    font-style: italic;
+    opacity: 1;
+    white-space: normal;
+}
+
+.log-page .send-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1e3a5f;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: 4px;
+    transition: all 0.2s ease;
+}
+
+.log-page .send-button:hover {
+    background-color: #234970;
+    transform: scale(1.05);
+}
+
+.log-page .privacy-note {
+    font-size: 12px;
+    color: #94a9c5;
+    text-align: center;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* Thinking indicator */
+.log-page .thinking-dots {
+    display: flex;
+    gap: 4px;
+    padding: 4px 0;
+}
+
+.log-page .thinking-dots span {
+    width: 8px;
+    height: 8px;
+    background-color: #94a9c5;
+    border-radius: 50%;
+    animation: thinking 1.4s infinite;
+}
+
+.log-page .thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+.log-page .thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes thinking {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
+    30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ===== AUTH PAGES ===== */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #153c72, #1e3a5f);
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.auth-box {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.auth-box h2 {
+    margin-bottom: 30px;
+    color: #1e3a5f;
+    text-align: center;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 12px;
+    background: #1e3a5f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.auth-box button:hover {
+    background: #234970;
+}
+
+.auth-box p {
+    text-align: center;
+    color: #64748b;
+    margin-top: 16px;
+}
+
+.auth-box a {
+    color: #1e3a5f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .main-heading { font-size: 38px; }
+    .button-grid { flex-direction: column; align-items: center; }
+    .action-button { width: 100%; max-width: 100%; }
+    .process-flow { flex-direction: column; padding: 24px; }
+    .process-step { width: 100%; }
+    .step-arrow { transform: rotate(90deg); margin: 8px 0; }
+    
+    .log-page .message-content { max-width: 85%; }
+    .log-page .input-area { padding: 8px 12px 16px; }
+}
+
+@media (max-width: 480px) {
+    .main-heading { font-size: 32px; }
+    .logo-circle { width: 44px; height: 44px; }
+    .logo-c, .logo-m { font-size: 18px; }
+    
+    .log-page .message-avatar { width: 32px; height: 32px; font-size: 12px; }
+    .log-page .message-content { max-width: 90%; }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===== BUTTON HOVER ANIMATIONS ===== */
+
+/* Log Mistake Button */
+.log-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.log-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.log-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px -10px rgba(9, 113, 240, 0.4);
+    background: linear-gradient(145deg, #0a82ff, #3366a0);
+}
+
+.log-btn:hover::before {
+    left: 100%;
+}
+
+/* Weekly Insight Button */
+.insight-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.insight-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.insight-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px -10px rgba(98, 166, 249, 0.4);
+    background: linear-gradient(145deg, #72b0ff, #3f6da0);
+}
+
+.insight-btn:hover::before {
+    left: 100%;
+}
+
+/* Button click effect */
+.action-button:active {
+    transform: translateY(-2px) scale(0.98);
+    transition: transform 0.1s;
+}
+
+/* Optional: Add subtle pulse animation on page load */
+@keyframes subtlePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.action-button {
+    animation: subtlePulse 2s ease-in-out 1;
+    animation-iteration-count: 1;
+}
+
+
+
+
+
+
+
+/* ===== AUTH BUTTONS IN HEADER ===== */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.auth-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.auth-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.register-link {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.user-greeting {
+    color: white;
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+
+
+
+/* ===== DASHBOARD STYLES ===== */
+.dashboard-main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+.dashboard-main h1 {
+    font-size: 36px;
+    color: #0a1a2f;
+    margin-bottom: 32px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.stat-card {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.stat-card h3 {
+    color: #64748b;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.stat-card p {
+    font-size: 36px;
+    font-weight: 600;
+    color: #1e3a5f;
+}
+
+.patterns-section, .history-section {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.patterns-section h2, .history-section h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    color: #0a1a2f;
+}
+
+.pattern-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.pattern-item:last-child {
+    border-bottom: none;
+}
+
+.pattern-name {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.pattern-count {
+    color: #1e3a5f;
+    font-weight: 600;
+}
+
+.history-item {
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.history-input {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #1e293b;
+}
+
+.history-date {
+    font-size: 14px;
+    color: #94a9c5;
+}

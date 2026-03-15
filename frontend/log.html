@@ -1,0 +1,71 @@
+<!-- log.html - FULL SCREEN WhatsApp-style UI -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>ClearMind • Log a mistake</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="log-page">
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-with-text">
+                <div class="logo-circle">
+                    <span class="logo-c">C</span>
+                    <span class="logo-m">M</span>
+                </div>
+                <span class="logo-text">ClearMind</span>
+            </div>
+            <!-- In header, add this after logo-with-text div -->
+<div class="auth-buttons">
+    <a href="login.html" class="auth-link" id="loginLink">Login</a>
+    <a href="register.html" class="auth-link register-link" id="registerLink">Register</a>
+    <span class="user-greeting" id="userGreeting" style="display: none;"></span>
+    <button class="logout-btn" id="logoutBtn" style="display: none;">Logout</button>
+</div>
+            <div class="header-spacer"></div>
+        </div>
+    </header>
+
+    <!-- Main Chat Container - FULL SCREEN -->
+    <div class="chat-container">
+        <!-- Messages Area - Scrollable, NO OUTLINE -->
+        <div class="messages-area" id="conversationArea">
+            <!-- Welcome Message -->
+            <div class="message-row ai-message">
+                <div class="message-avatar">CM</div>
+                <div class="message-content">
+                    <div class="message-bubble">
+                        <p>Hi, I'm ClearMind. Tell me about a mistake you made recently. What was the question, what did you answer, and what were you thinking?</p>
+                    </div>
+                    <span class="message-time">just now</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area - MERGED, FULL WIDTH -->
+        <!-- Input Area - MERGED, FULL WIDTH -->
+<div class="input-area">
+    <div class="input-container">
+        <textarea 
+            id="mistakeInput" 
+            class="chat-textarea" 
+            placeholder="Describe the question, what answer you thought and explain your thinking. Write naturally - no format needed. Honesty improves accuracy."
+            rows="1"
+        ></textarea>
+        <button id="submitMistake" class="send-button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+    <p class="privacy-note">Your entries are private and stored locally. Honesty improves accuracy.</p>
+</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

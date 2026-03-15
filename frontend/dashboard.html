@@ -1,0 +1,58 @@
+<!-- frontend/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearMind • Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-with-text">
+                <div class="logo-circle">
+                    <span class="logo-c">C</span>
+                    <span class="logo-m">M</span>
+                </div>
+                <span class="logo-text">ClearMind</span>
+            </div>
+            <div class="auth-buttons">
+                <span class="user-greeting" id="userGreeting"></span>
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <h1>Your Thinking Patterns</h1>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Mistakes</h3>
+                <p id="totalCount">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>This Week</h3>
+                <p id="weeklyCount">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Top Pattern</h3>
+                <p id="topPattern">None</p>
+            </div>
+        </div>
+
+        <div class="patterns-section">
+            <h2>Your Mistake Patterns</h2>
+            <div id="patternsList"></div>
+        </div>
+
+        <div class="history-section">
+            <h2>Recent Mistakes</h2>
+            <div id="historyList"></div>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
