@@ -3,27 +3,27 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import os
 import json
-from datetime import datetime, timedelta  # UPDATED
-import hashlib  # NEW
-import secrets  # NEW
-# backend/app.py - Add this at the top after imports
+from datetime import datetime, timedelta
+import hashlib
+import secrets
 import sys
-import os
+
 # Add the backend directory to Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from .ai_brain import ai_brain
-from database import Database  # NEW
+# Fix: Use direct import, not relative import
+from ai_brain import ai_brain
+from database import Database
 
 app = Flask(__name__, 
             static_folder='../frontend',
             static_url_path='')
 CORS(app)
 
-# ===== NEW: Database initialization =====
+# ===== Database initialization =====
 db = Database()
 
-# ===== NEW: Helper functions =====
+# ===== Helper functions =====
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
@@ -51,7 +51,7 @@ def serve_dashboard():
 def serve_static(path):
     return send_from_directory('../frontend', path)
 
-# ===== NEW: AUTHENTICATION ENDPOINTS =====
+# ===== AUTHENTICATION ENDPOINTS =====
 @app.route('/api/register', methods=['POST'])
 def register():
     """Register new user"""
@@ -64,21 +64,18 @@ def register():
         if not all([username, email, password]):
             return jsonify({"success": False, "error": "All fields required"}), 400
         
-        # Check if user exists
         if db.get_user_by_username(username):
             return jsonify({"success": False, "error": "Username already taken"}), 400
         
         if db.get_user_by_email(email):
             return jsonify({"success": False, "error": "Email already registered"}), 400
         
-        # Create user
         password_hash = hash_password(password)
         user_id = db.create_user(username, email, password_hash)
         
         if not user_id:
             return jsonify({"success": False, "error": "Registration failed"}), 500
         
-        # Create session
         token = generate_token()
         expires_at = datetime.now() + timedelta(days=30)
         db.create_session(user_id, token, expires_at)
@@ -107,25 +104,20 @@ def login():
         if not all([username, password]):
             return jsonify({"success": False, "error": "Username and password required"}), 400
         
-        # Get user
         user = db.get_user_by_username(username)
         if not user:
             return jsonify({"success": False, "error": "Invalid username or password"}), 401
         
-        # Check password
         password_hash = hash_password(password)
         if password_hash != user['password_hash']:
             return jsonify({"success": False, "error": "Invalid username or password"}), 401
         
-        # Delete old sessions
         db.delete_user_sessions(user['id'])
         
-        # Create new session
         token = generate_token()
         expires_at = datetime.now() + timedelta(days=30)
         db.create_session(user['id'], token, expires_at)
         
-        # Update last login
         db.update_last_login(user['id'])
         
         return jsonify({
@@ -180,14 +172,13 @@ def get_current_user():
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
-# ===== UPDATED: YOUR EXISTING ANALYZE ENDPOINT =====
+# ===== ANALYZE ENDPOINT =====
 @app.route('/api/analyze', methods=['POST'])
 def analyze_mistake():
     try:
         data = request.json
         student_input = data.get('text', '').strip()
         
-        # Get user from token (optional - if not logged in, use anonymous)
         token = request.headers.get('Authorization', '').replace('Bearer ', '')
         user_id = None
         if token:
@@ -201,7 +192,6 @@ def analyze_mistake():
         print(f"\n📨: {student_input[:50]}...")
         analysis = ai_brain.process(student_input)
         
-        # Save to database if user is logged in
         if user_id:
             pattern = analysis.get('pattern_category', analysis.get('error_type', 'unknown'))
             db.save_mistake(user_id, student_input, analysis, pattern)
@@ -211,7 +201,7 @@ def analyze_mistake():
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
-# ===== NEW: User history endpoints =====
+# ===== User history endpoints =====
 @app.route('/api/history', methods=['GET'])
 def get_user_history():
     """Get user's mistake history"""
@@ -226,7 +216,6 @@ def get_user_history():
         
         mistakes = db.get_user_mistakes(session['user_id'])
         
-        # Format for frontend
         history = []
         for m in mistakes:
             history.append({
