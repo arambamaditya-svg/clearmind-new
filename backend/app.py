@@ -6,8 +6,13 @@ import json
 from datetime import datetime, timedelta  # UPDATED
 import hashlib  # NEW
 import secrets  # NEW
+# backend/app.py - Add this at the top after imports
+import sys
+import os
+# Add the backend directory to Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from ai_brain import ai_brain
+from .ai_brain import ai_brain
 from database import Database  # NEW
 
 app = Flask(__name__, 
